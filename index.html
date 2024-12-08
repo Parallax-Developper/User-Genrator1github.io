@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Username Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+        .category {
+            margin-bottom: 20px;
+        }
+        .category h2 {
+            margin-bottom: 10px;
+        }
+        .names {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        .name {
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 1.1em;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Username Generator</h1>
+        <p>Generate unique usernames for different platforms!</p>
+
+        <div class="category" id="pubg">
+            <h2>PUBG</h2>
+            <div class="names" id="pubg-names"></div>
+            <button onclick="generateNames('pubg')">Generate PUBG Names</button>
+        </div>
+
+        <div class="category" id="roblox">
+            <h2>Roblox</h2>
+            <div class="names" id="roblox-names"></div>
+            <button onclick="generateNames('roblox')">Generate Roblox Names</button>
+        </div>
+
+        <div class="category" id="fortnite">
+            <h2>Fortnite</h2>
+            <div class="names" id="fortnite-names"></div>
+            <button onclick="generateNames('fortnite')">Generate Fortnite Names</button>
+        </div>
+
+        <div class="category" id="discord">
+            <h2>Discord</h2>
+            <div class="names" id="discord-names"></div>
+            <button onclick="generateNames('discord')">Generate Discord Names</button>
+        </div>
+
+        <div class="category" id="social">
+            <h2>Social Media (X, Facebook, TikTok, YouTube)</h2>
+            <div class="names" id="social-names"></div>
+            <button onclick="generateNames('social')">Generate Social Media Names</button>
+        </div>
+    </div>
+
+    <script>
+        const nameCategories = {
+            pubg: ['SharpShooter', 'DeadlyShadow', 'GhostSniper', 'FireFury', 'BattleKing'],
+            roblox: ['BlockMaster', 'GameLord', 'PixelWizard', 'FunBuilder', 'CodeExplorer'],
+            fortnite: ['VictoryHunter', 'StormChaser', 'BuildPro', 'SkullTrooperX', 'EpicBlaster'],
+            discord: ['ChatWarrior', 'VoiceVibe', 'ServerKing', 'NitroBeast', 'EmojiLord'],
+            social: ['TrendSetterX', 'ViralVibes', 'ContentKing', 'FollowGuru', 'PostPro']
+        };
+
+        function generateNames(category) {
+            const container = document.getElementById(`${category}-names`);
+            container.innerHTML = '';
+
+            const names = nameCategories[category];
+            names.forEach(name => {
+                const nameElement = document.createElement('div');
+                nameElement.className = 'name';
+                nameElement.textContent = name;
+                container.appendChild(nameElement);
+            });
+        }
+    </script>
+</body>
+</html>
